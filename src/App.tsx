@@ -7,12 +7,13 @@ import { validateAuthToken } from "./utils/api";
 
 function App() {
   const [isLogged, setIsLogged] = React.useState<boolean>(false);
-  const [isLoading, setIsLoading] = React.useState<boolean>(true);
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [currentUser, setCurrentUser] = React.useState<CurrentUser | undefined>(
     undefined
   );
 
   React.useEffect(() => {
+    setIsLoading(true);
     const access_token = document.location.hash.match(
       /#access_token=([a-zA-Z0-9]*)/g
     );
@@ -37,6 +38,8 @@ function App() {
       };
 
       authFlow();
+    } else {
+      setIsLoading(false);
     }
   }, []);
 
