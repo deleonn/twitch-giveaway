@@ -77,7 +77,7 @@ export default function Picker({ followers }: Props) {
               isLoading={isLoading}
               onClick={handleWinner}
               mb={4}
-              disabled={!followers.length}
+              disabled={!followers.length || isLoading}
             >
               Choose a winner!
             </Button>
