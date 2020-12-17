@@ -21,14 +21,15 @@ export default function List({ followers, total, isFetching }: Props) {
               <Text as="b" color="purple.300">
                 {total} followers
               </Text>{" "}
-              ❤️
+              {total > 0 ? "❤️" : "😣"}
             </Text>
             <Box overflowY="scroll" flex="1">
-              {followers.map((el) => (
-                <React.Fragment key={el.followed_at}>
-                  <Text color="white">{el.from_name}</Text>
-                </React.Fragment>
-              ))}
+              {followers.length &&
+                followers.map((el) => (
+                  <React.Fragment key={el.followed_at}>
+                    <Text color="white">{el.from_name}</Text>
+                  </React.Fragment>
+                ))}
             </Box>
           </>
         )}
