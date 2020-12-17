@@ -4,7 +4,7 @@ ghpages.publish(
   "build",
   {
     repo: `https://${process.env.GH_TOKEN}@github.com/deleonn/twitch-giveaway.git`,
-    silent: true,
+    silent: false,
   },
 
   (err) => {
