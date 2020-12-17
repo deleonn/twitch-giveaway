@@ -54,6 +54,7 @@ export const getFollowers = async (
   const response = await api.get("https://api.twitch.tv/helix/users/follows", {
     params: {
       to_id: user_id,
+      first: 100,
     },
     headers: {
       Authorization: `Bearer ${token}`,

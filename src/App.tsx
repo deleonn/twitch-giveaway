@@ -7,6 +7,7 @@ import { validateAuthToken } from "./utils/api";
 
 function App() {
   const [isLogged, setIsLogged] = React.useState<boolean>(false);
+  const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [currentUser, setCurrentUser] = React.useState<CurrentUser | undefined>(
     undefined
   );
@@ -19,7 +20,7 @@ function App() {
     if (access_token?.length) {
       const token = access_token![0].substring(14);
 
-      const authFlow = async (access_token: string) => {
+      const authFlow = async () => {
         const response = await validateAuthToken(token);
 
         const { login: username, user_id } = response;
@@ -35,12 +36,13 @@ function App() {
         }
       };
 
-      authFlow(token);
+      authFlow();
     }
   }, []);
 
   const login = () => {
     setIsLogged(true);
+    setIsLoading(false);
     localStorage.setItem("is_logged", "true");
   };
 
@@ -56,6 +58,7 @@ function App() {
       value={{
         currentUser,
         isLogged: isLogged,
+        isLoading: isLoading,
         handleLogin: login,
         handleLogout: logout,
       }}

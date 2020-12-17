@@ -2,11 +2,12 @@ import React, { useContext } from "react";
 import { Box, Flex } from "@chakra-ui/react";
 import List from "./List";
 import Picker from "./Picker";
-import { getFollowers } from "../../utils/api";
+import { Follower, getFollowers } from "../../utils/api";
 import { AuthContext } from "../../utils/authContext";
 
 function Home(): React.ReactElement {
-  const [followers, setFollowers] = React.useState<any>([]);
+  const [followers, setFollowers] = React.useState<Array<Follower>>([]);
+  const [isFetching, setIsFetching] = React.useState<boolean>(true);
   const [total, setTotal] = React.useState<any>(undefined);
   const { currentUser } = useContext(AuthContext);
 
@@ -21,12 +22,13 @@ function Home(): React.ReactElement {
     );
     setTotal(response.total);
     setFollowers(response.data);
+    setIsFetching(false);
   };
 
   return (
     <Flex>
-      <List followers={followers} total={total} />
-      <Picker />
+      <List followers={followers} total={total} isFetching={isFetching} />
+      <Picker followers={followers} />
     </Flex>
   );
 }

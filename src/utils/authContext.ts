@@ -7,6 +7,7 @@ export interface CurrentUser {
 }
 
 export interface AuthState {
+  isLoading: boolean;
   isLogged: boolean;
   currentUser: CurrentUser | undefined;
   handleLogin?: () => void;
@@ -14,6 +15,7 @@ export interface AuthState {
 }
 
 const initialState: AuthState = {
+  isLoading: true,
   isLogged: false,
   currentUser: undefined,
   handleLogin: () => {},

@@ -1,7 +1,9 @@
+import { Box } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { HomePage, LoginPage } from "../Pages";
 import { AuthContext } from "../utils/authContext";
+import { Loader } from "../UI";
 
 const PrivateRoutes = (
   <Switch>
@@ -16,9 +18,13 @@ const PublicRoutes = (
 );
 
 function Router(): React.ReactElement {
-  const { isLogged } = useContext(AuthContext);
+  const { isLogged, isLoading } = useContext(AuthContext);
   return (
-    <BrowserRouter>{isLogged ? PrivateRoutes : PublicRoutes}</BrowserRouter>
+    <BrowserRouter>
+      <Box>
+        {isLoading ? <Loader /> : isLogged ? PrivateRoutes : PublicRoutes}
+      </Box>
+    </BrowserRouter>
   );
 }
 
