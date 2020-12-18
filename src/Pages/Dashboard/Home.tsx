@@ -16,19 +16,23 @@ function Home(): React.ReactElement {
     // eslint-disable-next-line
   }, []);
 
-  const handleGetFollowers = async (cursor?: string) => {
+  const tempFollowers: any[] = [];
+
+  const handleGetFollowers = async (cursor?: string): Promise<void> => {
     const response = await getFollowers(
       currentUser?.user_id!,
       currentUser?.access_token!,
       cursor
     );
-    setFollowers([...response.data, ...followers]);
+
+    tempFollowers.push(response.data);
 
     if (response.pagination.cursor) {
-      handleGetFollowers(response.pagination.cursor);
+      return handleGetFollowers(response.pagination.cursor);
     } else {
       setTotal(response.total);
       setIsFetching(false);
+      setFollowers(tempFollowers);
     }
   };
 
