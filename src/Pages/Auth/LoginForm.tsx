@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { FormErrorMessage, FormControl, Button } from "@chakra-ui/react";
 import { FaTwitch } from "react-icons/fa";
-import { AuthContext } from "../../utils/authContext";
 import { twitchAuthFlowURI } from "../../utils/api";
 
 export default function LoginForm() {

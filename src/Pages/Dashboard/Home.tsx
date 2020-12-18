@@ -16,7 +16,7 @@ function Home(): React.ReactElement {
     // eslint-disable-next-line
   }, []);
 
-  const tempFollowers: any[] = [];
+  const tempFollowers: Array<any> = [];
 
   const handleGetFollowers = async (cursor?: string): Promise<void> => {
     const response = await getFollowers(
@@ -32,7 +32,7 @@ function Home(): React.ReactElement {
     } else {
       setTotal(response.total);
       setIsFetching(false);
-      setFollowers(tempFollowers);
+      setFollowers([...tempFollowers, ...response.data]);
     }
   };
 
