@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Box, Flex } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import List from "./List";
 import Picker from "./Picker";
 import { Follower, getFollowers } from "../../utils/api";
@@ -13,7 +13,7 @@ function Home(): React.ReactElement {
 
   React.useEffect(() => {
     handleGetFollowers();
-  }, []);
+  });
 
   const handleGetFollowers = async () => {
     const response = await getFollowers(

@@ -9,7 +9,7 @@ export default function LoginForm() {
   const { handleSubmit, errors, formState } = useForm();
 
   function onSubmit() {
-    window.open(twitchAuthFlowURI);
+    window.open(twitchAuthFlowURI, "_self");
   }
 
   return (
