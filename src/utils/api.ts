@@ -49,12 +49,14 @@ export interface Follower {
 
 export const getFollowers = async (
   user_id: string,
-  token: string
+  token: string,
+  cursor?: string,
 ): Promise<FollowersResponse> => {
   const response = await api.get("https://api.twitch.tv/helix/users/follows", {
     params: {
       to_id: user_id,
       first: 100,
+      after: cursor
     },
     headers: {
       Authorization: `Bearer ${token}`,
