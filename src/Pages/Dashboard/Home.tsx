@@ -5,6 +5,8 @@ import Picker from "./Picker";
 import { Follower, getFollowers } from "../../utils/api";
 import { AuthContext } from "../../utils/authContext";
 
+const tempFollowers: any[] = [];
+
 function Home(): React.ReactElement {
   const [followers, setFollowers] = React.useState<Array<Follower>>([]);
   const [isFetching, setIsFetching] = React.useState<boolean>(true);
@@ -16,8 +18,6 @@ function Home(): React.ReactElement {
     // eslint-disable-next-line
   }, []);
 
-  const tempFollowers: Array<any> = [];
-
   const handleGetFollowers = async (cursor?: string): Promise<void> => {
     const response = await getFollowers(
       currentUser?.user_id!,
@@ -25,14 +25,14 @@ function Home(): React.ReactElement {
       cursor
     );
 
-    tempFollowers.push(response.data);
+    tempFollowers.push(...response.data);
 
     if (response.pagination.cursor) {
       return handleGetFollowers(response.pagination.cursor);
     } else {
       setTotal(response.total);
       setIsFetching(false);
-      setFollowers([...tempFollowers, ...response.data]);
+      setFollowers(tempFollowers);
     }
   };
 
