@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/twitch-giveaway/static/js/main.e43fbd15.chunk.js",
-    "main.js.map": "/twitch-giveaway/static/js/main.e43fbd15.chunk.js.map",
+    "main.js": "/twitch-giveaway/static/js/main.f835faef.chunk.js",
+    "main.js.map": "/twitch-giveaway/static/js/main.f835faef.chunk.js.map",
     "runtime-main.js": "/twitch-giveaway/static/js/runtime-main.7f371bea.js",
     "runtime-main.js.map": "/twitch-giveaway/static/js/runtime-main.7f371bea.js.map",
-    "static/js/2.f2ff5ac0.chunk.js": "/twitch-giveaway/static/js/2.f2ff5ac0.chunk.js",
-    "static/js/2.f2ff5ac0.chunk.js.map": "/twitch-giveaway/static/js/2.f2ff5ac0.chunk.js.map",
+    "static/js/2.1a394ac2.chunk.js": "/twitch-giveaway/static/js/2.1a394ac2.chunk.js",
+    "static/js/2.1a394ac2.chunk.js.map": "/twitch-giveaway/static/js/2.1a394ac2.chunk.js.map",
     "static/js/3.91eb7e22.chunk.js": "/twitch-giveaway/static/js/3.91eb7e22.chunk.js",
     "static/js/3.91eb7e22.chunk.js.map": "/twitch-giveaway/static/js/3.91eb7e22.chunk.js.map",
     "index.html": "/twitch-giveaway/index.html",
-    "static/js/2.f2ff5ac0.chunk.js.LICENSE.txt": "/twitch-giveaway/static/js/2.f2ff5ac0.chunk.js.LICENSE.txt"
+    "static/js/2.1a394ac2.chunk.js.LICENSE.txt": "/twitch-giveaway/static/js/2.1a394ac2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.7f371bea.js",
-    "static/js/2.f2ff5ac0.chunk.js",
-    "static/js/main.e43fbd15.chunk.js"
+    "static/js/2.1a394ac2.chunk.js",
+    "static/js/main.f835faef.chunk.js"
   ]
 }
