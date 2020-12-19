@@ -23,7 +23,7 @@ export default function List({ followers, total, isFetching }: Props) {
               </Text>{" "}
               {total > 0 ? "❤️" : "😣"}
             </Text>
-            <Box overflowY="scroll" flex="1">
+            <Box overflowY="auto" flex="1">
               {followers.length &&
                 followers.map((el) => (
                   <React.Fragment key={el.followed_at}>
