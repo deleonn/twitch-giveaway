@@ -45,6 +45,7 @@ export interface Follower {
   to_id: string;
   to_name: string;
   followed_at: string;
+  checked?: boolean;
 }
 
 export const getFollowers = async (

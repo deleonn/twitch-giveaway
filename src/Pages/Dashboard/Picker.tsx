@@ -4,10 +4,9 @@ import { Header } from "../../UI";
 import { Follower } from "../../utils/api";
 
 const labelOptions = [
-  "Connecting to the private server...",
   "Choosing the best follower...",
   "Removing blacklisted users...",
-  "Computing results...",
+  "Ay...",
 ];
 
 interface Props {
@@ -51,7 +50,7 @@ export default function Picker({ followers }: Props) {
         chooseWinner();
       }
       setIsShowing(true);
-    }, 1000);
+    }, 500);
   };
 
   const chooseWinner = () => {
@@ -108,6 +107,7 @@ export default function Picker({ followers }: Props) {
               isLoading={isLoading}
               onClick={handleWinner}
               mt={4}
+              disabled={!followers.length || isLoading}
             >
               Re-roll?
             </Button>

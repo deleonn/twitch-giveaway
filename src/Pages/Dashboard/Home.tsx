@@ -9,6 +9,9 @@ const tempFollowers: any[] = [];
 
 function Home(): React.ReactElement {
   const [followers, setFollowers] = React.useState<Array<Follower>>([]);
+  const [computedFollowers, setComputedFollowers] = React.useState<
+    Array<Follower>
+  >([]);
   const [isFetching, setIsFetching] = React.useState<boolean>(true);
   const [total, setTotal] = React.useState<any>(undefined);
   const { currentUser } = useContext(AuthContext);
@@ -36,10 +39,19 @@ function Home(): React.ReactElement {
     }
   };
 
+  const followersChanged = (updatedFollowers: Array<Follower>) => {
+    setComputedFollowers(updatedFollowers.filter((f) => f.checked === true));
+  };
+
   return (
     <Flex>
-      <List followers={followers} total={total} isFetching={isFetching} />
-      <Picker followers={followers} />
+      <List
+        followers={followers}
+        total={total}
+        isFetching={isFetching}
+        handleFollowersChange={followersChanged}
+      />
+      <Picker followers={computedFollowers} />
     </Flex>
   );
 }
