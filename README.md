@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Twitch Giveaway
+
+Demo available at [deleonn.github.io/twitch-giveaway](https://deleonn.github.io/twitch-giveaway/)
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
